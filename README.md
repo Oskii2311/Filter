@@ -8,7 +8,7 @@ constructor(private \_FilterService: FilterService) {}
 
 ngOnInit() {
 
-    myData = this.\_FilterService.filter(defaultdata, value, target)
+    myData = this._FilterService.filter(defaultdata, value, target)
 
 }
 
@@ -16,6 +16,6 @@ ngOnInit() {
 
 ngOnInit() {
 
-    myData = this.\_FilterService.filter(defaultdata, value)
+    myData = this._FilterService.filter(defaultdata, value)
 
 }
