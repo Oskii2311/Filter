@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FilterService {
   private previousFilter = [];
@@ -15,7 +15,11 @@ export class FilterService {
       this.previousFilter = this.addNewFilters(value, target);
     }
 
-    if (!this.isValueExist(value)) {
+    if (
+      (value === '' && !target) ||
+      (value === '' && target) ||
+      (value === undefined && target)
+    ) {
       this.previousFilter = this.removeFilter(target);
 
       if (this.previousFilter.length === 0) {
@@ -81,18 +85,14 @@ export class FilterService {
   }
 
   private removeFilter(target: string) {
+    if (!target) {
+      target = 'global';
+    }
+
     return this.previousFilter.filter(el => {
       if (el.target !== target) {
         return el;
       }
     });
-  }
-
-  private isValueExist(value: any) {
-    if (!value || value === undefined || value === '') {
-      return false;
-    }
-
-    return true;
   }
 }
