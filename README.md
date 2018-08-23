@@ -1,19 +1,21 @@
 # Usage
 
-## Add service to component for exapmle : constructro(private \_FilterService: FilterService) {}
+## Add service to component for exapmle:
+
+constructor(private \_FilterService: FilterService) {}
 
 ## for specyfic key serach
 
-### ngOnInit() {
+ngOnInit() {
 
-### myData = this.\_FilterService.filter(defaultdata, value, target)
+    myData = this.\_FilterService.filter(defaultdata, value, target)
 
-### }
+}
 
 ## for global search
 
-### ngOnInit() {
+ngOnInit() {
 
-### myData = this.\_FilterService.filter(defaultdata, value)
+    myData = this.\_FilterService.filter(defaultdata, value)
 
-### }
+}
